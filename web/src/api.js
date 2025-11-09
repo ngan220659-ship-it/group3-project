@@ -23,7 +23,7 @@ api.interceptors.response.use(
         if (!refreshToken) throw new Error("Không có refresh token")
 
         const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL || "http://localhost:5000/users"}/refresh-token`,
+          `${import.meta.env.REACT_APP_VITE_API_URL || "http://localhost:5000/users"}/refresh-token`,
           { refreshToken }
         )
 
