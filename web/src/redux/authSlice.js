@@ -17,7 +17,8 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (formData, thu
       err.response?.data?.message || err.message || "Đăng nhập thất bại"
 
     // 🔹 Hợp nhất hành vi: mọi lỗi đều THROW để FE bắt được
-    throw { response: { status, data: { message } } }
+    //throw { response: { status, data: { message } } }
+    return thunkAPI.rejectWithValue({ status, message });
   }
 })
 
@@ -55,7 +56,9 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false
-        state.error = action.error.message
+        // Lỗi nhận được từ rejectWithValue sẽ nằm trong action.payload
+        state.error = action.payload?.message || action.error.message || "Lỗi không xác định.";
+        //state.error = action.error.message
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null
