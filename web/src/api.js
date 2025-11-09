@@ -6,6 +6,7 @@ import axios from "axios"
 
 const api = axios.create({
   baseURL: import.meta.env.REACT_APP_VITE_API_URL || "https://group3-backend-869j.onrender.com/user",
+  withCredentials: true,
 })
 
 // 🔹 Gắn accessToken vào header
