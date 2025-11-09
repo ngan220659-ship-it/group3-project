@@ -33,7 +33,15 @@ const userRoutes = require('./routes/user');
 // ************** KẾT THÚC CẤU HÌNH **************
 
 // MIDDLEWARE (PHẢI TRƯỚC ROUTES)
-app.use(cors()); // Cho phép frontend gọi API
+//app.use(cors()); // Cho phép frontend gọi API
+app.use(cors({
+  origin: [
+    "https://group3-project-alpha.vercel.app", // FE domain
+    "http://localhost:5173" // local dev
+  ],
+  credentials: true,
+}));
+
 app.use(express.json()); // Parse body JSON
 app.use(express.urlencoded({ extended: true }));
 
