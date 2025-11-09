@@ -5,7 +5,7 @@ import axios from "axios"
 //})
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://group3-backend-869j.onrender.com/user",
+  baseURL: import.meta.env.VITE_API_URL || "https://group3-backend-869j.onrender.com/users",
   withCredentials: true,
 })
 
