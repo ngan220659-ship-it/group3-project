@@ -1,16 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const userController = require('../controllers/userController');
+const userController = require("../controllers/userController");
 
-// SỬA DÒNG NÀY: Giờ đã lấy cả authMiddleware và adminMiddleware
-const { authMiddleware, adminMiddleware } = require('../middleware/auth'); 
-
-// TÍNH NĂNG REFRESH TOKEN
-router.post('/refresh-token', userController.refreshToken); 
-// Cần SỬA router.get('/logout', ...) thành router.post('/logout', ...) 
-// để có thể gửi Refresh Token trong body (nếu cần)
-router.post('/logout', userController.logout); // SỬA NẾU CẦN GỬI BODY
 router.post("/login", userController.login);
 router.post("/signup", userController.signup);
+router.post("/logout", userController.logout);
+router.post("/refresh-token", userController.refreshToken);
 
 module.exports = router;
