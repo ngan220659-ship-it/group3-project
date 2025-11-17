@@ -26,7 +26,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (formData, thu
 export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, thunkAPI) => {
   try {
     const refreshToken = localStorage.getItem("refreshToken")
-    await api.post("/logout", { refreshToken })
+    await api.post("/users/logout", { refreshToken })
   } catch {}
   localStorage.clear()
   return true
