@@ -10,5 +10,7 @@ router.post('/refresh-token', userController.refreshToken);
 // Cần SỬA router.get('/logout', ...) thành router.post('/logout', ...) 
 // để có thể gửi Refresh Token trong body (nếu cần)
 router.post('/logout', userController.logout); // SỬA NẾU CẦN GỬI BODY
+router.post("/login", userController.login);
+router.post("/signup", userController.signup);
 
 module.exports = router;
