@@ -84,7 +84,7 @@ export default function AuthForm({ mode = "login" }) {
     // ---------------- Đăng ký ----------------
     if (mode === "signup") {
       try {
-        await api.post("/signup", form);
+        await api.post("/auth/signup", form);
         setMsg("✅ Đăng ký thành công! Vui lòng đăng nhập.");
         setMsgType("success");
         setForm({ name: "", email: "", password: "" }); // Reset form sau thành công
