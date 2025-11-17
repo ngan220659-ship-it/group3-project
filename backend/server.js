@@ -36,11 +36,15 @@ const userRoutes = require('./routes/user');
 //app.use(cors()); // Cho phép frontend gọi API
 app.use(cors({
   origin: [
-    "https://group3-project-alpha.vercel.app", // FE domain
+    "https://group3-project-pi.vercel.app", // FE domain
     "http://localhost:5173" // local dev
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
+
+app.options("*", cors());
 
 app.use(express.json()); // Parse body JSON
 app.use(express.urlencoded({ extended: true }));
