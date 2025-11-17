@@ -5,7 +5,7 @@ import axios from "axios"
 //})
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://group3-backend-869j.onrender.com/users",
+  baseURL: import.meta.env.VITE_API_URL || "https://group3-project-xjlt.onrender.com/users",
   withCredentials: true,
 })
 
@@ -28,7 +28,7 @@ api.interceptors.response.use(
         if (!refreshToken) throw new Error("Không có refresh token")
 
         const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL || "https://group3-backend-869j.onrender.com/users"}/refresh-token`,
+          `${import.meta.env.VITE_API_URL || "https://group3-project-xjlt.onrender.com/users"}/refresh-token`,
           { refreshToken }
         )
 
