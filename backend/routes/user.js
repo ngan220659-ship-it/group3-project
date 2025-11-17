@@ -15,7 +15,7 @@ const upload = multer({ dest: 'uploads/' }); // Phải khớp với thư mục M
 router.post('/upload-avatar', upload.single('avatar'), authMiddleware, userController.uploadAvatar);
 
 router.post('/signup', userController.signup);
-// router.post('/login', userController.login);
+router.post('/login', userController.login);
 //router.get('/logout', userController.logout); // Optional
 
 // Them chuc nang lay va cap nhat profile
@@ -55,7 +55,7 @@ router.put('/profile', authMiddleware, logActivity('UPDATE_PROFILE'), userContro
 // Ghi log khi Admin xóa user
 router.delete('/:id', authMiddleware, checkRole('admin'), logActivity('DELETE_USER'), userController.deleteUser);
 
-router.post('/login', loginLimiter, userController.login); // Áp dụng rate limiter cho login
+//router.post('/login', loginLimiter, userController.login); // Áp dụng rate limiter cho login
 
 module.exports = router;
 
