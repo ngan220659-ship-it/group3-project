@@ -4,7 +4,7 @@ import api from "../api"
 // 🧠 Đăng nhập
 export const loginUser = createAsyncThunk("auth/loginUser", async (formData, thunkAPI) => {
   try {
-    const res = await api.post("/auth/login", formData)
+    const res = await api.post("/users/login", formData)
     const { user, accessToken, refreshToken } = res.data
     localStorage.setItem("user", JSON.stringify(user))
     localStorage.setItem("accessToken", accessToken)
